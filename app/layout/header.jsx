@@ -1,33 +1,58 @@
+import { useState } from 'react';
 import ActiveLink from '../shared/active-link';
 
 function Header() {
+  const [collapse, setCollapse] = useState(false);
+
+  const handleClick = () => {
+    setCollapse((prev) => {
+      if (prev === false) {
+        return true;
+      }
+      return false;
+    });
+  };
+
   return (
     <header>
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      <nav
+        className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"
+        aria-label="Main navigation"
+      >
         <div className="container">
           <ActiveLink href="/" activeClassName="">
-            <a className="navbar-brand">Nextjs</a>
+            <a className="navbar-brand">Next Boot</a>
           </ActiveLink>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler p-0 border-0"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
+            id="navbarSideCollapse"
             aria-label="Toggle navigation"
+            onClick={handleClick}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <ActiveLink href="/" activeClassName="active">
-                <a className="nav-link">Home</a>
-              </ActiveLink>
-              <ActiveLink href="/about" activeClassName="active">
-                <a className="nav-link">About</a>
-              </ActiveLink>
-            </div>
+          <div
+            className={`navbar-collapse offcanvas-collapse${
+              collapse ? ' open' : ''
+            }`}
+            id="navbarsExampleDefault"
+          >
+            <ul
+              onClick={handleClick}
+              className="navbar-nav me-auto mb-2 mb-lg-0"
+            >
+              <li className="nav-item">
+                <ActiveLink href="/" activeClassName="active">
+                  <a className="nav-link">Home</a>
+                </ActiveLink>
+              </li>
+              <li className="nav-item">
+                <ActiveLink href="/about" activeClassName="active">
+                  <a className="nav-link">About</a>
+                </ActiveLink>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
