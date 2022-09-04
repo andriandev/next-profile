@@ -1,3 +1,4 @@
+import MetaHead from '../../app/shared/meta-head';
 import Button from '../../app/components/button';
 import { useState } from 'react';
 
@@ -14,6 +15,7 @@ function About() {
 
   return (
     <>
+      <MetaHead title="About" description="Next bootstrap about" />
       <h1>About</h1>
       <Button className="btn btn-primary btn-sm me-2" onClick={handleTambah}>
         Tambah 1
