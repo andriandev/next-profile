@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 function MetaHead(props) {
   // Get canonical url
   const { asPath } = useRouter();
+
+  // Delete params '?' and '#'
   let urlPath = '';
   if (asPath.includes('?')) {
     urlPath = asPath.split('?')[0];
@@ -12,11 +14,11 @@ function MetaHead(props) {
   } else {
     urlPath = asPath;
   }
-  const origin =
-    typeof window !== 'undefined' && window.location.origin
-      ? window.location.origin
-      : '';
-  const canonical = origin + urlPath;
+
+  // Delete '/' in home page
+  if (urlPath === '/') {
+    urlPath = '';
+  }
 
   return (
     <Head>
@@ -27,7 +29,7 @@ function MetaHead(props) {
         name="robots"
         content={props.index === 'noindex' ? 'noindex, nofollow' : props.index}
       />
-      <link rel="canonical" href={props.canonical || canonical}></link>
+      <link rel="canonical" href={props.canonical + urlPath}></link>
     </Head>
   );
 }
@@ -35,6 +37,7 @@ function MetaHead(props) {
 MetaHead.defaultProps = {
   title: 'Next Bootstrap',
   description: 'Next js bootstrap layout',
+  canonical: '',
   index: 'index, follow',
 };
 
