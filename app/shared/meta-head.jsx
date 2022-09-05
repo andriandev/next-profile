@@ -29,7 +29,14 @@ function MetaHead(props) {
         name="robots"
         content={props.index === 'noindex' ? 'noindex, nofollow' : props.index}
       />
-      <link rel="canonical" href={props.canonical + urlPath}></link>
+      <link
+        rel="canonical"
+        href={
+          props.canonical
+            ? props.canonical + urlPath
+            : process.env.NEXT_PUBLIC_BASE_URL + urlPath
+        }
+      ></link>
     </Head>
   );
 }
@@ -37,7 +44,6 @@ function MetaHead(props) {
 MetaHead.defaultProps = {
   title: 'Next Bootstrap',
   description: 'Next js bootstrap layout',
-  canonical: '',
   index: 'index, follow',
 };
 

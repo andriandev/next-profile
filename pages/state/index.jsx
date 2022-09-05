@@ -2,7 +2,7 @@ import { useState } from 'react';
 import MetaHead from '../../app/shared/meta-head';
 import Button from '../../app/components/button';
 
-function State(props) {
+function State() {
   const [number, setNumber] = useState(1);
 
   const handleTambah = () => {
@@ -15,11 +15,7 @@ function State(props) {
 
   return (
     <>
-      <MetaHead
-        title="State"
-        description="Next bootstrap state"
-        canonical={props.baseUrl}
-      />
+      <MetaHead title="State" description="Next bootstrap state" />
       <h1>State</h1>
       <Button className="btn btn-primary btn-sm me-2" onClick={handleTambah}>
         Tambah 1
@@ -30,12 +26,6 @@ function State(props) {
       <p className="my-2">Number: {number}</p>
     </>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: { baseUrl: process.env.BASE_URL },
-  };
 }
 
 export default State;
