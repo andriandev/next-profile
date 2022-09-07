@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ActiveLink from '../shared/active-link';
+import ActiveLink from '@/components/shared/active-link';
 
 function Header() {
   const [collapse, setCollapse] = useState(false);

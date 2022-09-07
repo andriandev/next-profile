@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import MetaHead from '../../app/shared/meta-head';
-import Button from '../../app/components/button';
+import MetaHead from '@/components/shared/meta-head';
+import Button from '@/components/shared/button';
 
 function State() {
   const [number, setNumber] = useState(1);

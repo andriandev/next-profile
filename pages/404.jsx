@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import MetaHead from '../app/shared/meta-head';
+import MetaHead from '@/components/shared/meta-head';
 
 function NotFound() {
   return (

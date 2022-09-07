@@ -1,4 +1,4 @@
-import MetaHead from '../app/shared/meta-head';
+import MetaHead from '@/components/shared/meta-head';
 
 function Home() {
   return (
