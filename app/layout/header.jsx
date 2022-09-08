@@ -16,7 +16,7 @@ function Header() {
   return (
     <header>
       <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"
         aria-label="Main navigation"
       >
         <div className="container">
