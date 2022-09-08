@@ -1,6 +1,6 @@
 {
-  "name": "next-app-manual",
-  "version": "0.2.0",
+  "name": "next-profile",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

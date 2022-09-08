@@ -21,7 +21,7 @@ function Header() {
       >
         <div className="container">
           <ActiveLink href="/" activeClassName="">
-            <a className="navbar-brand">Next Boot</a>
+            <a className="navbar-brand">AndrianDev</a>
           </ActiveLink>
           <button
             className="navbar-toggler p-0 border-0"
@@ -53,8 +53,8 @@ function Header() {
                 </ActiveLink>
               </li>
               <li className="nav-item">
-                <ActiveLink href="/state" activeClassName="active">
-                  <a className="nav-link">State</a>
+                <ActiveLink href="/project" activeClassName="active">
+                  <a className="nav-link">Project</a>
                 </ActiveLink>
               </li>
             </ul>
