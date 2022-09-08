@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-import CustomHead from '../app/layout/custom-head';
-import CustomScript from '../app/layout/custom-script';
+import CustomHead from '@/layout/custom-head';
+import CustomScript from '@/layout/custom-script';
 
 export default function Document() {
   return (
