@@ -17,6 +17,8 @@ function Home() {
               height="220"
               src="/assets/img/profile.jpg"
               className="rounded mx-auto d-block img-thumbnail"
+              placeholder="blur"
+              blurDataURL="/assets/img/loader.png"
             />
           </div>
           <div className="col-sm-12 col-md-8 col-lg-9 my-2">
@@ -25,7 +27,7 @@ function Home() {
                 <b>Nama:</b> Andrian Adi Saputra
               </li>
               <li className="list-group-item">
-                <b>Alamat:</b> Pringsewu, Lampung, Indonesia
+                <b>Alamat:</b> Indonesia
               </li>
               <li className="list-group-item">
                 <b>Umur:</b> 22 Tahun
