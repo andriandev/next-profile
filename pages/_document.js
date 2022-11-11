@@ -4,7 +4,7 @@ import CustomScript from '@/layout/custom-script';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="id">
       <Head />
       <CustomHead />
       <body>

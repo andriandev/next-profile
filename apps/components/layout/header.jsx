@@ -1,8 +1,13 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import ActiveLink from '@/components/shared/active-link';
+import { siteTitle } from '@/config/setting';
+import NavHero from '@/components/layout/nav-hero';
 
 function Header() {
   const [collapse, setCollapse] = useState(false);
+  const { pathname } = useRouter();
+  const urlPath = pathname == '/' ? true : false;
 
   const handleClick = () => {
     setCollapse((prev) => {
@@ -13,6 +18,17 @@ function Header() {
     });
   };
 
+  const NAV_ITEM = [
+    {
+      title: 'Home',
+      href: '/',
+    },
+    {
+      title: 'Project',
+      href: '/project',
+    },
+  ];
+
   return (
     <header>
       <nav
@@ -21,7 +37,7 @@ function Header() {
       >
         <div className="container">
           <ActiveLink href="/" activeClassName="">
-            <a className="navbar-brand">AndrianDev</a>
+            <a className="navbar-brand">{siteTitle()}</a>
           </ActiveLink>
           <button
             className="navbar-toggler p-0 border-0"
@@ -42,25 +58,22 @@ function Header() {
               onClick={handleClick}
               className="navbar-nav me-auto mb-2 mb-lg-0"
             >
-              <li className="nav-item">
-                <ActiveLink href="/" activeClassName="active">
-                  <a className="nav-link">Home</a>
-                </ActiveLink>
-              </li>
-              <li className="nav-item">
-                <ActiveLink href="/about" activeClassName="active">
-                  <a className="nav-link">About</a>
-                </ActiveLink>
-              </li>
-              <li className="nav-item">
-                <ActiveLink href="/project" activeClassName="active">
-                  <a className="nav-link">Project</a>
-                </ActiveLink>
-              </li>
+              {NAV_ITEM.map((item, i) => (
+                <li className="nav-item" key={i}>
+                  <ActiveLink
+                    href={item.href}
+                    activeClassName="active"
+                    scroll={item.href.includes('#') ? false : true}
+                  >
+                    <a className="nav-link">{item.title}</a>
+                  </ActiveLink>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </nav>
+      {urlPath && <NavHero />}
     </header>
   );
 }

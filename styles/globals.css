@@ -1,6 +1,7 @@
 html,
 body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -36,4 +37,14 @@ footer {
     visibility: visible;
     transform: translateX(-100%);
   }
+}
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  padding-bottom: 56px;
+  /* background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 }

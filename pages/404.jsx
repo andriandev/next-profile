@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import MetaHead from '@/components/shared/meta-head';
+import Button from '@/components/shared/button';
 
 function NotFound() {
   return (
@@ -11,9 +12,9 @@ function NotFound() {
       />
       <h1>404 Page Not Found</h1>
       <Link href="/">
-        <button type="button" className="btn btn-primary btn-sm">
+        <Button type="button" className="btn btn-primary btn-sm">
           Back Home &raquo;
-        </button>
+        </Button>
       </Link>
     </>
   );
