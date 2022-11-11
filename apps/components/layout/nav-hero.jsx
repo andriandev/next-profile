@@ -38,8 +38,8 @@ function NavHero() {
             <MyImage
               width="150"
               height="150"
-              src="/assets/img/profile.jpg"
-              className="rounded-circle img-thumbnail"
+              src="https://i.ibb.co/TPW0SM3/profile-circle.png"
+              className=" img-thumbnail rounded-circle"
             />
             <h1 className="fw-light h2">{siteTitle()}</h1>
             <p className="lead fs-6">{siteDescription()}</p>
