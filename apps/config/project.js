@@ -85,9 +85,9 @@ const MY_PROJECT = [
 const limitProjectPerPage = 50;
 
 export function getAllProject(page = 1, limit = limitProjectPerPage) {
-  const limitPost = limit * page;
-  const offsetPost = (page - 1) * limit;
-  return MY_PROJECT.slice(offsetPost, limitPost);
+  const limitProject = limit * page;
+  const offsetProject = (page - 1) * limit;
+  return MY_PROJECT.slice(offsetProject, limitProject);
 }
 
 export function getFeaturedProject() {

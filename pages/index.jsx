@@ -6,7 +6,7 @@ import {
   siteSubTitle,
   siteSeparator,
 } from '@/config/setting';
-import { getFeaturedProject } from '@/config/data';
+import { getFeaturedProject } from '@/config/project';
 import CardProject from '@/components/shared/card-project';
 
 function Home() {

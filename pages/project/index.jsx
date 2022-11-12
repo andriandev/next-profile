@@ -1,6 +1,6 @@
 import MetaHead from '@/components/shared/meta-head';
 import { siteTitle, siteSeparator } from '@/config/setting';
-import { getAllProject } from '@/config/data';
+import { getAllProject } from '@/config/project';
 import CardProject from '@/components/shared/card-project';
 
 function Project() {

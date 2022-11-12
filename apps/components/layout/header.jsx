@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import ActiveLink from '@/components/shared/active-link';
 import { siteTitle } from '@/config/setting';
+import { getAllNavItem } from '@/config/nav-item';
 import NavHero from '@/components/layout/nav-hero';
 
 function Header() {
@@ -18,16 +19,7 @@ function Header() {
     });
   };
 
-  const NAV_ITEM = [
-    {
-      title: 'Home',
-      href: '/',
-    },
-    {
-      title: 'Project',
-      href: '/project',
-    },
-  ];
+  const NAV_ITEM = getAllNavItem();
 
   return (
     <header>

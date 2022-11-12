@@ -1,11 +1,21 @@
-const site_base_url = 'https://andriandev.my.id';
-const site_favicon_url = '/favicon.ico';
-const site_title = 'AndrianDev';
-const site_separator = '-';
-const site_sub_title = 'Web Developer';
-const site_description =
-  'AndrianDev merupakan website portofolio pribadi yang berisi kumpulan projek yang pernah dibuat.';
-const site_index = 'index'; // index or noindex
+const SETTING = {
+  base_url: 'https://andriandev.my.id',
+  favicon_url: '/favicon.ico',
+  title: 'AndrianDev',
+  separator: '-',
+  sub_title: 'Web Developer',
+  description:
+    'AndrianDev merupakan website portofolio pribadi yang berisi kumpulan projek yang pernah dibuat.',
+  index: 'index', // index or noindex
+};
+
+const site_base_url = SETTING.base_url;
+const site_favicon_url = SETTING.favicon_url;
+const site_title = SETTING.title;
+const site_separator = SETTING.separator;
+const site_sub_title = SETTING.sub_title;
+const site_description = SETTING.description;
+const site_index = SETTING.index;
 
 export function siteBaseUrl(base_url = site_base_url) {
   return process.env.NEXT_PUBLIC_BASE_URL || base_url;
