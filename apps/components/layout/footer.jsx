@@ -4,10 +4,10 @@ import { siteTitle } from '@/config/setting';
 function Footer() {
   return (
     <footer className="bg-light border-top">
-      <p className="text-center text-muted my-3">
+      <p className="text-center small my-3">
         Copyright ©{new Date().getFullYear() + ' '}
         <Link href="/">
-          <a className="text-muted text-decoration-none">{siteTitle()}</a>
+          <a className="text-decoration-none text-dark">{siteTitle()}</a>
         </Link>
       </p>
     </footer>

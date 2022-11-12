@@ -18,7 +18,7 @@ function Home() {
         canonical="/"
       />
       <div className="mb-5">
-        <h2 id="profile" className="h5 text-center mb-3">
+        <h2 id="profile" className="h4 text-center mb-3">
           My Profile
         </h2>
         <div className="row">
@@ -45,7 +45,7 @@ function Home() {
         </div>
       </div>
       <div className="mb-3">
-        <h2 id="project" className="h5 text-center mb-3">
+        <h2 id="project" className="h4 text-center mb-3">
           My Project
         </h2>
         <CardProject items={getFeaturedProject()} />

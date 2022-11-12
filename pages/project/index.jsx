@@ -11,7 +11,7 @@ function Project() {
         description={`Daftar project ${siteTitle()} yang pernah dibuat.`}
         canonical="/project"
       />
-      <h1 className="h5 text-center border-bottom pb-1 mb-3">Daftar Project</h1>
+      <h1 className="h4 text-center border-bottom pb-1 mb-3">Daftar Project</h1>
       <CardProject items={getAllProject()} />
     </>
   );

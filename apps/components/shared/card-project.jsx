@@ -26,6 +26,7 @@ function CardProject(props) {
                 title={item.title}
                 src={item.image}
                 className="card-img-top border-bottom"
+                alt={item.title}
               />
               <div
                 className={`card-body${
@@ -47,6 +48,8 @@ function CardProject(props) {
                     <Button
                       onClick={handleClick}
                       className="btn btn-success btn-sm"
+                      aria-label="preview"
+                      title="Live Preview"
                     >
                       Live Preview
                     </Button>
@@ -55,6 +58,8 @@ function CardProject(props) {
                       href={item.preview}
                       target="_blank"
                       className="btn btn-success btn-sm"
+                      aria-label="preview"
+                      title="Live Preview"
                     >
                       Live Preview
                     </a>
@@ -63,6 +68,8 @@ function CardProject(props) {
                     <Button
                       onClick={handleClick}
                       className="btn btn-secondary btn-sm"
+                      aria-label="source"
+                      title="Source Code"
                     >
                       Source Code
                     </Button>
@@ -71,6 +78,8 @@ function CardProject(props) {
                       href={item.source_code}
                       target="_blank"
                       className="btn btn-secondary btn-sm"
+                      aria-label="source"
+                      title="Source Code"
                     >
                       Source Code
                     </a>
