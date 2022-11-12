@@ -21,8 +21,8 @@ function CardProject(props) {
               }`}
             >
               <MyImage
-                width="1280"
-                height="720"
+                width="640"
+                height="360"
                 title={item.title}
                 src={item.image}
                 className="card-img-top border-bottom"

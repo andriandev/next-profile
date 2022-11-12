@@ -45,6 +45,7 @@ function Header() {
             id="navbarSideCollapse"
             aria-label="Toggle navigation"
             onClick={handleClick}
+            role="button"
           >
             {collapse ? (
               <svg
