@@ -3,13 +3,13 @@ import Button from '@/components/shared/button';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function CardProject(props) {
+function CardCertificate(props) {
   if (props.items.length == 0) {
-    return <p className="text-center">Tidak ada project.</p>;
+    return <p className="text-center">Tidak ada sertifikat.</p>;
   }
 
   function handleClick() {
-    toast.info('Source code pribadi.', {
+    toast.info('Tidak ada preview.', {
       position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
@@ -33,8 +33,8 @@ function CardProject(props) {
               }`}
             >
               <MyImage
-                width="640"
-                height="360"
+                width="600"
+                height="446"
                 title={item.title}
                 src={item.image}
                 className="card-img-top border-bottom"
@@ -76,26 +76,6 @@ function CardProject(props) {
                       Live Preview
                     </a>
                   )}
-                  {item.source_code == '' ? (
-                    <Button
-                      onClick={handleClick}
-                      className="btn btn-secondary btn-sm"
-                      aria-label="source"
-                      title="Source Code"
-                    >
-                      Source Code
-                    </Button>
-                  ) : (
-                    <a
-                      href={item.source_code}
-                      target="_blank"
-                      className="btn btn-secondary btn-sm"
-                      aria-label="source"
-                      title="Source Code"
-                    >
-                      Source Code
-                    </a>
-                  )}
                 </div>
               </div>
             </div>
@@ -107,10 +87,10 @@ function CardProject(props) {
   );
 }
 
-CardProject.defaultProps = {
+CardCertificate.defaultProps = {
   classCard: '',
   classCardBody: '',
   items: [],
 };
 
-export default CardProject;
+export default CardCertificate;

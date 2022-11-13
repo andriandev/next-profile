@@ -12,10 +12,11 @@ function Header() {
 
   const handleClick = () => {
     setCollapse((prev) => {
-      if (prev === false) {
-        return true;
-      }
-      return false;
+      return !prev;
+      // if (prev === false) {
+      //   return true;
+      // }
+      // return false;
     });
   };
 
@@ -85,7 +86,26 @@ function Header() {
                     activeClassName="active"
                     scroll={item.href.includes('#') ? false : true}
                   >
-                    <a className="nav-link">{item.title}</a>
+                    <a className="nav-link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="15"
+                        height="15"
+                        fill="currentColor"
+                        className={`${item.iconClass} mb-1`}
+                        viewBox="0 0 16 16"
+                        alt={item.title}
+                      >
+                        {item.iconPath.map((itemPath, i) => (
+                          <path
+                            key={i}
+                            fillRule={item.iconFillRule}
+                            d={itemPath}
+                          />
+                        ))}
+                      </svg>{' '}
+                      {item.title}
+                    </a>
                   </ActiveLink>
                 </li>
               ))}
