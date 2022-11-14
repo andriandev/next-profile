@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import MyImage from '@/components/shared/my-image';
 import Button from '@/components/shared/button';
 import { ToastContainer, toast } from 'react-toastify';
@@ -66,15 +67,29 @@ function CardProject(props) {
                       Live Preview
                     </Button>
                   ) : (
-                    <a
-                      href={item.preview}
-                      target="_blank"
-                      className="btn btn-success btn-sm"
-                      aria-label="preview"
-                      title="Live Preview"
-                    >
-                      Live Preview
-                    </a>
+                    <>
+                      {item.preview.includes('https://') ? (
+                        <a
+                          href={item.preview}
+                          target="_blank"
+                          className="btn btn-success btn-sm"
+                          aria-label="preview"
+                          title="Live Preview"
+                        >
+                          Live Preview
+                        </a>
+                      ) : (
+                        <Link href={item.preview}>
+                          <a
+                            className="btn btn-success btn-sm"
+                            aria-label="preview"
+                            title="Live Preview"
+                          >
+                            Live Preview
+                          </a>
+                        </Link>
+                      )}
+                    </>
                   )}
                   {item.source_code == '' ? (
                     <Button

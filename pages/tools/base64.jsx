@@ -3,6 +3,9 @@ import MetaHead from '@/components/shared/meta-head';
 import { siteTitle, siteSeparator } from '@/config/setting';
 import { useState } from 'react';
 import Card from '@/components/shared/card';
+import Button from '@/components/shared/button';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Base64() {
   const [base64Option, setBase64Option] = useState('encode');
@@ -44,6 +47,25 @@ function Base64() {
     }
     // Set Base64Result state with result
     setBase64Result(result);
+    return;
+  }
+
+  // Function copy base64 result
+  function handleCopy() {
+    // Copy base64 result
+    navigator.clipboard.writeText(base64Result);
+
+    // Toast the copied text
+    toast.success(`Hasil ${base64Option} berhasil di copy.`, {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
     return;
   }
 
@@ -89,12 +111,38 @@ function Base64() {
             </div>
           </div>
           <textarea
-            className="form-control mb-4"
+            className="form-control"
             rows="5"
             placeholder={`Masukan teks yang akan di ${base64Option}`}
             value={base64Value}
             onChange={handleChangeBase64Input}
           ></textarea>
+          <div className="text-center">
+            <Button
+              className={`btn btn-primary btn-sm my-3${
+                base64Result == '' ? ' disabled' : ''
+              }`}
+              onClick={handleCopy}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-clipboard-check mb-1"
+                viewBox="0 0 16 16"
+                alt="Copy"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+                />
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+              </svg>{' '}
+              Copy to Clipboard
+            </Button>
+          </div>
           <textarea
             className="form-control"
             rows="5"
@@ -105,6 +153,7 @@ function Base64() {
           ></textarea>
         </div>
       </Card>
+      <ToastContainer />
     </>
   );
 }
