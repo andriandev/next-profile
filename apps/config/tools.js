@@ -17,6 +17,15 @@ const MY_TOOLS = [
     preview: '/tools/money-converter',
     source_code: '',
   },
+  {
+    title: 'Web Screenshot',
+    slug: 'web-screenshot',
+    image: 'https://i.ibb.co/my30C17/Money-Converter-Tools.png',
+    stack: ['Next Js', 'React Js', 'Bootstrap'],
+    isFeatured: true,
+    preview: '/tools/web-screenshot',
+    source_code: '',
+  },
 ];
 
 const limitToolsPerPage = 50;
