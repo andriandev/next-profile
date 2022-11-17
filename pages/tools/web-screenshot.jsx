@@ -75,7 +75,6 @@ function Tools() {
       '3SG62YG-MV14SGA-P7ECD3Y-9S96ZDK',
     ];
     const token = randomTokens(arrayToken);
-    console.log(token);
 
     const options = {
       token: token,

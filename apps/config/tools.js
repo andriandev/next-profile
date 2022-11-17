@@ -20,7 +20,7 @@ const MY_TOOLS = [
   {
     title: 'Web Screenshot',
     slug: 'web-screenshot',
-    image: 'https://i.ibb.co/my30C17/Money-Converter-Tools.png',
+    image: 'https://i.ibb.co/93VtgN0/Web-Screenshot-Tools.png',
     stack: ['Next Js', 'React Js', 'Bootstrap'],
     isFeatured: true,
     preview: '/tools/web-screenshot',
