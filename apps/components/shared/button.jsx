@@ -4,6 +4,7 @@ function Button(props) {
       type={props.type}
       className={props.className}
       onClick={props.onClick}
+      role={props.role ? props.role : 'button'}
     >
       {props.children}
     </button>

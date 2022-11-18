@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Card from '@/components/shared/card';
 import Button from '@/components/shared/button';
 import MyImage from '@/components/shared/my-image';
+import { getRandomArray, getQueryUrl } from '@/helpers/function';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,8 +12,8 @@ function Tools() {
   const [webUrl, setWebUrl] = useState('');
   const [fullPage, setFullPage] = useState(false);
   const [lazyLoad, setlazyLoad] = useState(false);
-  const [width, setWidth] = useState(1680);
-  const [height, setHeight] = useState(867);
+  const [width, setWidth] = useState(1280);
+  const [height, setHeight] = useState(720);
   const [delay, setDelay] = useState(1500);
   const [fileType, setFileType] = useState('PNG');
   const [imgResult, setImgResult] = useState(
@@ -22,6 +23,7 @@ function Tools() {
     'https://i.ibb.co/cDgDZrc/google.png'
   );
   const [isDisabled, setIsDisabled] = useState(false);
+  const [disabledHeight, setdisabledHeight] = useState(false);
 
   function handleChangeWebUrl(e) {
     setWebUrl(e.target.value);
@@ -29,6 +31,7 @@ function Tools() {
   }
 
   function handleChangeInputFullPage() {
+    setdisabledHeight((prev) => !prev);
     setFullPage((prev) => !prev);
     return;
   }
@@ -63,10 +66,6 @@ function Tools() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    function randomTokens(items) {
-      return items[Math.floor(Math.random() * items.length)];
-    }
-
     const arrayToken = [
       'JHD8KQ8-34BMH4K-JHCQBXG-399TRJD',
       'A37VAEH-ME644W9-JK16T5Z-GNKNZ6P',
@@ -74,7 +73,8 @@ function Tools() {
       '0MF280M-C2YMSYH-NVZH45T-G9Q6WDE',
       '3SG62YG-MV14SGA-P7ECD3Y-9S96ZDK',
     ];
-    const token = randomTokens(arrayToken);
+
+    const token = getRandomArray(arrayToken);
 
     const options = {
       token: token,
@@ -90,7 +90,10 @@ function Tools() {
     if (lazyLoad == true) {
       options.lazy_load = lazyLoad;
     }
-    const url = doQuery('https://shot.screenshotapi.net/screenshot', options);
+    const url = getQueryUrl(
+      'https://shot.screenshotapi.net/screenshot',
+      options
+    );
 
     // Set loading
     const toastLoading = toast.loading('Please wait...');
@@ -100,55 +103,50 @@ function Tools() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        if (data?.file_type == 'pdf') {
-          setImgResult('https://i.ibb.co/XWPVQbx/PDF-Image.png');
+        if (data?.error) {
+          setImgResult('https://i.ibb.co/cDgDZrc/google.png');
+          setLinkImgResult('https://i.ibb.co/cDgDZrc/google.png');
+          toast.update(toastLoading, {
+            render: `Terjadi kesalahan !`,
+            type: 'error',
+            isLoading: false,
+            autoClose: 3000,
+            pauseOnHover: true,
+            closeOnClick: true,
+          });
         } else {
-          setImgResult(data?.screenshot);
+          if (data?.file_type == 'pdf') {
+            setImgResult('https://i.ibb.co/XWPVQbx/PDF-Image.png');
+          } else {
+            setImgResult(data?.screenshot);
+          }
+          setLinkImgResult(data?.screenshot);
+          toast.update(toastLoading, {
+            render: 'Screenshoot berhasil.',
+            type: 'success',
+            isLoading: false,
+            autoClose: 3000,
+            pauseOnHover: true,
+            closeOnClick: true,
+          });
         }
-        setLinkImgResult(data?.screenshot);
-        toast.update(toastLoading, {
-          render: 'Screenshoot berhasil.',
-          type: 'success',
-          isLoading: false,
-          autoClose: 5000,
-          pauseOnHover: true,
-          closeOnClick: true,
-        });
       })
       .catch((e) => {
-        console.log(e);
-        toast.error('Terjadi kesalahan !', {
-          position: 'top-right',
+        // console.log(e?.message);
+        setImgResult('https://i.ibb.co/cDgDZrc/google.png');
+        setLinkImgResult('https://i.ibb.co/cDgDZrc/google.png');
+        toast.update(toastLoading, {
+          render: `Error ${e?.message}`,
+          type: 'error',
+          isLoading: false,
           autoClose: 3000,
           pauseOnHover: true,
-          draggable: true,
+          closeOnClick: true,
         });
       })
       .finally(() => setIsDisabled(false));
 
     return;
-  }
-
-  function doQuery(url, userQuery) {
-    //construct a new url
-    let res = new URL(url);
-    //check if userquery contians properties
-    if (Object.keys(userQuery).length !== 0) {
-      //loop through object
-      let ind = 0;
-      while (ind < Object.keys(userQuery).length) {
-        //get the parameter
-        const param = Object.keys(userQuery)[ind];
-        //get the value
-        const value = userQuery[param];
-        //set or replace the parameter
-        res.searchParams.set(param, value);
-        //increment counter
-        ind++;
-      }
-    }
-    //return the full URL
-    return res.href;
   }
 
   return (
@@ -227,7 +225,7 @@ function Tools() {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="1680"
+                  placeholder="1280"
                   aria-label="width"
                   aria-describedby="width"
                   value={width}
@@ -242,11 +240,12 @@ function Tools() {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="867"
+                  placeholder="720"
                   aria-label="height"
                   aria-describedby="height"
                   value={height}
                   onChange={handleChangeInputHeight}
+                  disabled={disabledHeight}
                   required
                 />
               </div>
@@ -273,9 +272,9 @@ function Tools() {
                   className="form-select"
                   aria-label="filetype"
                   onChange={handleChangeInputFileType}
+                  value={fileType}
                   required
                 >
-                  <option defaultValue={fileType}>{fileType}</option>
                   {FILE_TYPE.map((item, i) => (
                     <option key={i} value={item}>
                       {item}
