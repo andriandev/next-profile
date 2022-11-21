@@ -80,6 +80,15 @@ const MY_PROJECT = [
     preview: 'https://andriandev.github.io/adblock-javascipt/',
     source_code: 'https://github.com/andriandev/adblock-javascipt',
   },
+  {
+    title: 'Ci Animelist (MAL API)',
+    slug: 'animelist-mal-api',
+    image: 'https://i.ibb.co/G2fTGCg/Next-Anime-List-MAL-API.png',
+    stack: ['Codeigniter 4', 'MySQL', 'Bootstrap'],
+    isFeatured: false,
+    preview: 'https://i.ibb.co/G2fTGCg/Next-Anime-List-MAL-API.png',
+    source_code: 'https://github.com/andriandev/ci-animelist',
+  },
 ];
 
 const limitProjectPerPage = 50;

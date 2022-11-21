@@ -36,13 +36,13 @@ function Home() {
         </div>
       </div>
       <div className="container mb-5">
-        <h2 id="project" className="h4 text-center mb-3">
+        <h2 id="tools" className="h4 text-center mb-3">
           My Tools
         </h2>
         <CardProject items={getFeaturedTools()} />
         <div className="row">
           <div className="col text-center">
-            <Link href="/project">
+            <Link href="/tools">
               <a className="text-decoration-none small ">
                 View All Tools &raquo;
               </a>
