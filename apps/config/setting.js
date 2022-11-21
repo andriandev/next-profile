@@ -1,4 +1,5 @@
 const SETTING = {
+  img_nav_hero: 'https://i.ibb.co/TPW0SM3/profile-circle.png',
   base_url: 'https://andriandev.my.id',
   favicon_url: '/favicon.ico',
   title: 'AndrianDev',
@@ -9,6 +10,7 @@ const SETTING = {
   index: 'index', // index or noindex
 };
 
+const site_img_nav_hero = SETTING.img_nav_hero;
 const site_base_url = SETTING.base_url;
 const site_favicon_url = SETTING.favicon_url;
 const site_title = SETTING.title;
@@ -16,6 +18,10 @@ const site_separator = SETTING.separator;
 const site_sub_title = SETTING.sub_title;
 const site_description = SETTING.description;
 const site_index = SETTING.index;
+
+export function siteImgNavHero(img_nav_hero = site_img_nav_hero) {
+  return process.env.NEXT_PUBLIC_IMG_NAV_HERO || img_nav_hero;
+}
 
 export function siteBaseUrl(base_url = site_base_url) {
   return process.env.NEXT_PUBLIC_BASE_URL || base_url;

@@ -1,4 +1,9 @@
-import { siteTitle, siteSubTitle, siteDescription } from '@/config/setting';
+import {
+  siteTitle,
+  siteSubTitle,
+  siteDescription,
+  siteImgNavHero,
+} from '@/config/setting';
 import MyImage from '@/components/shared/my-image';
 import { getAllSocialNavHero } from '@/config/social-nav-hero';
 
@@ -11,10 +16,10 @@ function NavHero() {
         <div className="row h-100 align-items-center">
           <div className="col-12 text-center">
             <MyImage
-              width="150"
-              height="150"
-              src="https://i.ibb.co/TPW0SM3/profile-circle.png"
-              className=" img-thumbnail rounded-circle"
+              width="160"
+              height="160"
+              src={siteImgNavHero()}
+              className=" img-thumbnail rounded-circle border border-dark"
               title={`${siteTitle()} ${siteSubTitle()}`}
               alt={`${siteTitle()} ${siteSubTitle()}`}
             />
@@ -41,7 +46,9 @@ function NavHero() {
                     viewBox="0 0 16 16"
                     alt={item.title}
                   >
-                    <path d={item.iconPath} />
+                    {item.iconPath.map((itemPath, i) => (
+                      <path key={i} fillRule={item.iconFillRule} d={itemPath} />
+                    ))}
                   </svg>
                 </a>
               ))}

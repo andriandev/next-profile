@@ -6,7 +6,9 @@ import {
   siteSubTitle,
   siteSeparator,
 } from '@/config/setting';
+import NavHero from '@/components/layout/nav-hero';
 import { getFeaturedProject } from '@/config/project';
+import { getFeaturedTools } from '@/config/tools';
 import CardProject from '@/components/shared/card-project';
 
 function Home() {
@@ -17,34 +19,8 @@ function Home() {
         description={siteDescription()}
         canonical="/"
       />
-      <div className="mb-5">
-        <h2 id="profile" className="h4 text-center mb-3">
-          My Profile
-        </h2>
-        <div className="row">
-          <div className="col">
-            <ul className="list-group">
-              <li className="list-group-item">
-                <b>Nama:</b> Andrian Adi Saputra
-              </li>
-              <li className="list-group-item">
-                <b>Alamat:</b> Indonesia
-              </li>
-              <li className="list-group-item">
-                <b>Umur:</b> 22 Tahun
-              </li>
-              <li className="list-group-item">
-                <b>Gender:</b> Pria
-              </li>
-              <li className="list-group-item">
-                <b>Keahlian:</b> HTML, CSS, Javascript, PHP, Node Js, React Js,
-                Next Js, Git.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="mb-3">
+      {<NavHero />}
+      <div className="container mb-5">
         <h2 id="project" className="h4 text-center mb-3">
           My Project
         </h2>
@@ -54,6 +30,21 @@ function Home() {
             <Link href="/project">
               <a className="text-decoration-none small ">
                 View All Project &raquo;
+              </a>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="container mb-5">
+        <h2 id="project" className="h4 text-center mb-3">
+          My Tools
+        </h2>
+        <CardProject items={getFeaturedTools()} />
+        <div className="row">
+          <div className="col text-center">
+            <Link href="/project">
+              <a className="text-decoration-none small ">
+                View All Tools &raquo;
               </a>
             </Link>
           </div>
