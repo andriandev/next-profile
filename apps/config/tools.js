@@ -26,6 +26,15 @@ const MY_TOOLS = [
     preview: '/tools/web-screenshot',
     source_code: '',
   },
+  {
+    title: 'Track IP Location',
+    slug: 'track-ip',
+    image: 'https://i.ibb.co/6XXCWX0/Track-IP-Location-Tools.png',
+    stack: ['Next Js', 'React Js', 'Bootstrap'],
+    isFeatured: true,
+    preview: '/tools/track-ip',
+    source_code: '',
+  },
 ];
 
 const limitToolsPerPage = 50;
