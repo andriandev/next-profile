@@ -22,7 +22,10 @@ function TrackIP() {
         pauseOnHover: true,
         closeOnClick: true,
       });
-      setIpInfo({ error: 'Terjadi Kesalahan !' });
+      setIpInfo({
+        error:
+          'Terjadi Kesalahan! Harap matikan pemblokir iklan dan plugin lainnya yang memblokir placakan alamat IP !',
+      });
       return;
     }
 
@@ -109,7 +112,10 @@ function TrackIP() {
           pauseOnHover: true,
           closeOnClick: true,
         });
-        setIpInfo({ error: 'Terjadi Kesalahan !' });
+        setIpInfo({
+          error:
+            'Terjadi Kesalahan! Harap matikan pemblokir iklan dan plugin lainnya yang memblokir placakan alamat IP !',
+        });
       })
       .finally(() => setIsDisabled(false));
 
